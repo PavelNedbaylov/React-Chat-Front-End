@@ -7,14 +7,12 @@ import { Link } from 'react-router-dom'
 export default function RegisterForm(props) {
     const {
         values,
-        touched,
         errors,
         handleChange,
         handleSubmit,
         isSubmitting
     } = props;
     const success = false
-    console.log('isSubmitting',isSubmitting)
     return (
         <div>
             <div className="auth__top">
@@ -23,17 +21,16 @@ export default function RegisterForm(props) {
             </div>
             <Block>
                 {!success ? <Form className="login-form" onSubmit={handleSubmit}>
-                    <Form.Item 
-                    hasFeedback 
-                    validateStatus={errors.email || values.email ? errors.email ? 'error' : 'success' : ''}
-                    help={errors.email}
+                    <Form.Item
+                        hasFeedback
+                        validateStatus={values.email ? errors.email ? 'error' : 'success' : ''}
+                        help={errors.email}
                     >
                         <Input
                             prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             size="large"
                             placeholder="E-Mail"
                             name="email"
-                            value={values.email}
                             onChange={handleChange}
                         />
                     </Form.Item>
@@ -47,10 +44,10 @@ export default function RegisterForm(props) {
                             onChange={handleChange}
                         />
                     </Form.Item>
-                    <Form.Item 
-                    hasFeedback 
-                    validateStatus={errors.password || values.password  ? errors.password ? 'error' : 'success' : ''}
-                    help={errors.password ? errors.password : ''}
+                    <Form.Item
+                        hasFeedback
+                        validateStatus={values.password ? errors.password ? 'error' : 'success' : ''}
+                        help={errors.password}
                     >
                         <Input
                             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -61,13 +58,17 @@ export default function RegisterForm(props) {
                             onChange={handleChange}
                         />
                     </Form.Item>
-                    <Form.Item validateStatus="success">
+                    <Form.Item
+                        hasFeedback
+                        validateStatus={values.conf_password ? errors.conf_password ? 'error' : 'success' : ''}
+                        help={errors.conf_password}
+                    >
                         <Input
                             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             size="large"
                             type="password"
                             placeholder="Повторите параль"
-                            name="r_password"
+                            name="conf_password"
                             onChange={handleChange}
                         />
                     </Form.Item>

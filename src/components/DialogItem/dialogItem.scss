@@ -1,0 +1,55 @@
+@import "~styles/variables.scss";
+
+.dialog {
+    &__item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 40px;
+        &-avatar {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 50px;
+            margin-right: 10px;
+            &-online {
+                position: absolute;
+                background-color: rgb(40, 206, 40);
+                border-radius: 50%;
+                width: 14px;
+                height: 14px;
+                border: 3px solid #fff;
+                bottom: 0;
+                left: 30px;
+            }
+        }
+        &-content {
+            width: 100%;
+        }
+        &-content-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+        }
+        &-message {
+            max-width: 300px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0;
+        }
+        &-content-bottom{
+            display: flex;
+            justify-content: space-between;
+        }
+        &-number{
+            background-color: #f46b6b;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+    
+}
