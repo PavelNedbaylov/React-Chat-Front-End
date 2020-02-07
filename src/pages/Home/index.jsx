@@ -56,7 +56,6 @@ export default function Home() {
             />
             <Message
                 avatar="https://sun9-7.userapi.com/c830608/v830608079/4f8e2/edHZsB_huUE.jpg?ava=1"
-                text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio, earum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio, earum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio, earum. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio, earum."
                 date="2020-01-26T13:51:50"
                 isReaded={false}
                 audio="https://notificationsounds.com/soundfiles/c361bc7b2c033a83d663b8d9fb4be56e/file-sounds-1146-quest.mp3"

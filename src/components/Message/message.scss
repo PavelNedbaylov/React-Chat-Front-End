@@ -21,7 +21,7 @@
         }
     }
 
-    &__text {
+    &__text, &__audio {
         margin: 0;
         color: #fff;
         text-align: bottom;
@@ -55,7 +55,7 @@
     }
 
     &.message-notme {
-        .message__text {
+        .message__text, .message__audio {
             background-color: $blue;
             box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.1967);
         }

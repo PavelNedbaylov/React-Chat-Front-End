@@ -1,13 +1,13 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import classNames from 'classnames'
-import readedSvg from 'assets/readed.svg'
-import noreadedSvg from 'assets/noreaded.svg'
-import { Time } from 'components'
+import { Time, MessageAudio } from 'components'
 
 import './message.scss'
+import readedSvg from 'assets/readed.svg'
+import noreadedSvg from 'assets/noreaded.svg'
 
-export default function Message({ avatar, user, text, date, isMe, isReaded, attachments, isTyping, _id }) {
+export default function Message({ avatar, user, text, date, isMe, isReaded, attachments, isTyping, audio, _id }) {
     return (
         <div key={_id} className={classNames('message', {
             'message-isme': isMe,
@@ -37,15 +37,7 @@ export default function Message({ avatar, user, text, date, isMe, isReaded, atta
                             </div>)
                     })}
                 </div>}
-                {audio && <div className="message__audio">
-                    <div className="message__audio-progress" style={{width:'40%'}}></div>
-                    <div className="message__audio-info"></div>
-                    <div className="message__audio-btn">
-                        <button></button>
-                    </div>
-                    <div className="message__audio-svg"></div>
-                </div>
-                }
+                {audio && <MessageAudio audioMessage={audio}/>}
             </div>
             <Time className="message__date" date={date} />
         </div>
