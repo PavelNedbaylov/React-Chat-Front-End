@@ -3,6 +3,7 @@ import readedSvg from 'assets/readed.svg'
 import noreadedSvg from 'assets/noreaded.svg'
 
 import { Time } from 'components'
+import { Avatar } from 'components'
 import './dialogItem.scss'
 
 export default function DialogItem({ id, text, online, avatar, fullname, date, readed, isReaded, unreaded}) {
@@ -10,7 +11,7 @@ export default function DialogItem({ id, text, online, avatar, fullname, date, r
         <div className="dialog__item">
             {online && <div className="dialog__item-avatar-online"></div>}
             <div className="dialog__item-avatar">
-                <img src={avatar} alt={fullname} />
+                <Avatar avatar={avatar} id={id} fullname={fullname}/>
             </div>
             <div className="dialog__item-content">
                 <div className="dialog__item-content-top">

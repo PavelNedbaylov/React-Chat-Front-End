@@ -9,7 +9,6 @@
         &-avatar {
             border-radius: 50%;
             overflow: hidden;
-            width: 50px;
             margin-right: 10px;
             &-online {
                 position: absolute;
@@ -23,7 +22,7 @@
             }
         }
         &-content {
-            width: 100%;
+            flex-grow: 1;
         }
         &-content-top {
             display: flex;

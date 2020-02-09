@@ -17,7 +17,7 @@ export default function Message({ avatar, user, text, date, isMe, isReaded, atta
             <div className="message__content">
                 {isMe ? <img className="message__icon" src={isReaded ? readedSvg : noreadedSvg} alt="Checked icon" /> : ''}
                 <div className="message__avatar">
-                    <img src={avatar} alt={`Avatar ${user.fullname}`} />
+                    {avatar && <img src={avatar} alt={`Avatar ${user.fullname}`} />}
                 </div>
                 {isTyping && (<div className="chat-bubble">
                     <div className="loading">

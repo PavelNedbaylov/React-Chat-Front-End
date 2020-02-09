@@ -9,6 +9,7 @@ export default function Dialogs({ items }) {
                 return (
                     <DialogItem
                         key={_id}
+                        id={_id}
                         text={message.text}
                         online={user.online}
                         avatar={user.avatar}
