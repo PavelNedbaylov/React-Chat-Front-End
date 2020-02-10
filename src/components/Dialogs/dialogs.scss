@@ -1,3 +1,27 @@
+@import '~styles/variables.scss';
+
 .dialogs {
-    max-width: 400px;
+    width: 350px;
+    overflow: auto;
+    height: 100%;
+    &-search {
+        padding: 25px 15px 25px;
+        border-right: 1px solid $home-border;
+        i:hover {
+            color: rgba(0, 0, 0, 0.45);
+            cursor: default;
+        }
+        input {
+            border: none;
+            background-color: #f6f3f3;
+            font-size: 14px;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+    &-noresults {
+        text-align: center;
+    }
 }

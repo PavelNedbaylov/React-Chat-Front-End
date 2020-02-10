@@ -1,4 +1,101 @@
+@import "~styles/variables.scss";
+
 .home {
+    max-width: 1170px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.chat {
     display: flex;
-    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    &__sidebar {
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            height: 70px;
+            border-bottom: 1px solid $home-border;
+            font-weight: bold;
+
+            .anticon-team {
+                margin-right: 5px;
+            }
+
+            .anticon-form {
+                font-size: 18px;
+                color: $button-icon;
+                cursor: pointer;
+            }
+        }
+
+        &-dialogs {
+            border-right: 1px solid $home-border;
+        }
+    }
+
+    &__dialog {
+        flex-grow: 1;
+        &-header {
+            height: 70px;
+            border-bottom: 1px solid $home-border;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+
+            &-center {
+                flex-grow: 1;
+                text-align: center;
+            }
+            button {
+                border: none;
+                font-size: 22px;
+                color: $button-icon;
+                &:hover {
+                    color: #777
+                }
+            }
+
+            &-username {
+                display: block;
+                font-size: 16px;
+            }
+            &-status {
+                color: rgb(156, 154, 154);
+                position: relative;
+                margin-left: 11px;
+                .status {
+                    position: relative;
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        left: -11px;
+                        bottom: 4px;
+                    }
+                    &.status--online::before {
+                        background-color: rgb(81, 228, 81);
+                    }
+                    &.status--offline::before {
+                        background-color: #ccc
+                    }
+                }
+            }
+        }
+
+        &-messages {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 15px;
+            border-left: 1px solid $home-border;
+            overflow: auto;
+            height: calc(100% - 152px);
+        }
+    }
 }

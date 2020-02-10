@@ -4,18 +4,19 @@ import noreadedSvg from 'assets/noreaded.svg'
 
 import { Time } from 'components'
 import { Avatar } from 'components'
+import tagsToLetters from 'utils/tagsToLetters'
 import './dialogItem.scss'
 
-export default function DialogItem({ id, text, online, avatar, fullname, date, readed, isReaded, unreaded}) {
+export default function DialogItem({ id, inputValue, active, text, online, avatar, fullname, date, readed, isReaded, unreaded }) {
     return (
-        <div className="dialog__item">
+        <div className={'dialog__item' + (active ? ' active' : '')}>
             {online && <div className="dialog__item-avatar-online"></div>}
             <div className="dialog__item-avatar">
-                <Avatar avatar={avatar} id={id} fullname={fullname}/>
+                <Avatar avatar={avatar} id={id} fullname={fullname} />
             </div>
             <div className="dialog__item-content">
                 <div className="dialog__item-content-top">
-                    <span className="dialog__item-name"><b>{fullname}</b></span>
+                    <span className="dialog__item-name"><b>{inputValue?tagsToLetters(fullname,inputValue):fullname}</b></span>
                     <Time date={date} />
                 </div>
                 <div className="dialog__item-content-bottom">

@@ -26,18 +26,20 @@ export default function Message({ avatar, user, text, date, isMe, isReaded, atta
                         <div className="dot three"></div>
                     </div>
                 </div>)}
-                {text && (<p className="message__text">
-                    {text}
-                </p>)}
-                {attachments && <div className="message__attached">
-                    {attachments.map(v => {
-                        return (
-                            <div key={v._id} className={classNames('message__attached-img', { 'single': attachments.length === 1 })}>
-                                <img src={v.url} alt={v.filename} />
-                            </div>)
-                    })}
-                </div>}
-                {audio && <MessageAudio audioMessage={audio}/>}
+                <div>
+                    {text && (<p className="message__text">
+                        {text}
+                    </p>)}
+                    {attachments && <div className="message__attached">
+                        {attachments.map(v => {
+                            return (
+                                <div key={v._id} className={classNames('message__attached-img', { 'single': attachments.length === 1 })}>
+                                    <img src={v.url} alt={v.filename} />
+                                </div>)
+                        })}
+                    </div>}
+                </div>
+                {audio && <MessageAudio audioMessage={audio} />}
             </div>
             <Time className="message__date" date={date} />
         </div>

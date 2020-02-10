@@ -11,5 +11,6 @@ export default function colorFromId(id) {
         case 7: return '255, 153, 102'
         case 8: return '153, 102, 204'
         case 9: return '255, 102, 102'
+        default: return '102, 255, 102'
     }
 }
