@@ -4,9 +4,8 @@ import { Dialogs } from 'containers'
 import { Icon, Button } from 'antd'
 
 import './home.scss'
-import dialogsJSON from 'assets/dialogs.json'
 
-export default function Home() {
+export default function Home() {    
     return (
         <section className='home'>
             <div className="chat">
@@ -19,8 +18,7 @@ export default function Home() {
                         <Icon type='form'/>
                     </div>
                     <div className="chat__sidebar-dialogs">
-                        <Dialogs items={dialogsJSON}
-                        />
+                        <Dialogs />
                     </div>
                 </div>
                 <div className="chat__dialog">
