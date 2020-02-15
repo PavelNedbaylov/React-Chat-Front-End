@@ -4,6 +4,11 @@
     margin-bottom: 15px;
     display: inline-block;
 
+    &__audio {
+        background-color: $blue;
+        box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.1967);
+    }
+
     &__content {
         display: flex;
         margin-bottom: 10px;
@@ -13,6 +18,14 @@
     &__avatar {
         align-self: flex-end;
 
+        .avatar {
+            height: 30px;
+            width: 30px;
+            font-size: 14px;
+            margin-right: 18px;
+            line-height: 14px;
+        }
+
         img {
             border-radius: 50%;
             height: 30px;
@@ -21,7 +34,8 @@
         }
     }
 
-    &__text, &__audio {
+    &__text,
+    &__audio {
         margin: 0;
         color: #fff;
         text-align: bottom;
@@ -47,6 +61,7 @@
         width: 50px;
         height: 50px;
         margin-right: 7px;
+
         &.single {
             width: 150px;
             height: 150px;
@@ -55,7 +70,9 @@
     }
 
     &.message-notme {
-        .message__text, .message__audio {
+
+        .message__text,
+        .message__audio {
             background-color: $blue;
             box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.1967);
         }
@@ -72,12 +89,18 @@
             border: 1px solid #ececec;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02204);
             color: $black;
+            max-width: 375px;
         }
 
         .message__icon {
-            height: 20px;
+            height: 17px;
+            width: 15px;
             align-self: flex-end;
             margin-right: 10px;
+
+            &.readed {
+                width: 19px;
+            }
         }
     }
 }
@@ -91,6 +114,7 @@
     border-radius: 12px 12px 12px 0;
     align-items: center;
     justify-content: center;
+
     .loading {
         display: flex;
 
@@ -100,6 +124,7 @@
             border-radius: 50%;
             margin: 0 0 0 8px;
             background-color: $message-typeing-circle;
+
             &:first-child {
                 margin: 0;
             }

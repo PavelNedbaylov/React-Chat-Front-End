@@ -1,17 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Icon, Input } from 'antd'
 
+import {UploadPhotos, Emoji} from 'components'
 import './chatInput.scss'
 
 export default function ChatInput() {
     return (
         <div className="chat__input">
-            <Icon className='chat__input-smile' type="smile" />
-            <Input
-                placeholder='Message...'
-            />
+            <Emoji/>
+            <Input placeholder='Message...' />
             <div className="chat__input-actions">
-                <Icon type="camera" />
+                <UploadPhotos />
                 <Icon type="audio" />
                 <Icon type="check-circle" />
             </div>

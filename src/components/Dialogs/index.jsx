@@ -3,7 +3,7 @@ import { DialogItem } from 'components'
 import { Input } from 'antd'
 import './dialogs.scss'
 
-export default function Dialogs({ items, onSearch, inputValue }) {
+export default function Dialogs({ items, active, onSearch, inputValue, onSelectDialog }) {
     return (
         <div className="dialogs">
             <div className="dialogs-search">
@@ -14,7 +14,7 @@ export default function Dialogs({ items, onSearch, inputValue }) {
                     onChange={onSearch}
                 />
             </div>
-            {items.length?items.sort((a, b) => a.message.date > b.message.date ? 1 : -1).map(({ active, user, message, _id }) => {
+            {items.length?items.sort((a, b) => a.message.date > b.message.date ? 1 : -1).map(({ user, message, _id }) => {
                 return (
                     <DialogItem
                         key={_id}
@@ -29,6 +29,7 @@ export default function Dialogs({ items, onSearch, inputValue }) {
                         readed={message.readed}
                         isReaded={message.isReaded}
                         unreaded={message.unreaded}
+                        onSelect={onSelectDialog}
                     />
                 )
             }):<div className='dialogs-noresults'>No contacts found</div>}

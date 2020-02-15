@@ -1,0 +1,17 @@
+@import '~styles/variables.scss';
+
+.chat__dialog-messages {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    border-left: 1px solid $home-border;
+    overflow: auto;
+    height: calc(100% - 152px);
+    &-empty {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+

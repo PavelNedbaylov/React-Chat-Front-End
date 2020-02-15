@@ -1,0 +1,18 @@
+.upload-photos {
+    width: auto;
+    margin-top: 2px;
+    .ant-upload {
+        border: none;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+
+        span.ant-upload {
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+    }
+}

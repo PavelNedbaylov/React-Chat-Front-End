@@ -88,14 +88,5 @@
                 }
             }
         }
-
-        &-messages {
-            display: flex;
-            flex-direction: column;
-            padding: 20px 15px;
-            border-left: 1px solid $home-border;
-            overflow: auto;
-            height: calc(100% - 152px);
-        }
     }
 }

@@ -7,9 +7,9 @@ import { Avatar } from 'components'
 import tagsToLetters from 'utils/tagsToLetters'
 import './dialogItem.scss'
 
-export default function DialogItem({ id, inputValue, active, text, online, avatar, fullname, date, readed, isReaded, unreaded }) {
+export default function DialogItem({ id, inputValue, active, text, online, avatar, fullname, date, readed, isReaded, unreaded, onSelect }) {
     return (
-        <div className={'dialog__item' + (active ? ' active' : '')}>
+        <div className={'dialog__item' + (active===id ? ' active' : '')} onClick={()=>onSelect(id)}>
             {online && <div className="dialog__item-avatar-online"></div>}
             <div className="dialog__item-avatar">
                 <Avatar avatar={avatar} id={id} fullname={fullname} />

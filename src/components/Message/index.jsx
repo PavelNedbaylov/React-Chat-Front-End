@@ -1,23 +1,24 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import classNames from 'classnames'
-import { Time, MessageAudio } from 'components'
+import { Time, MessageAudio, Avatar } from 'components'
 
 import './message.scss'
 import readedSvg from 'assets/readed.svg'
 import noreadedSvg from 'assets/noreaded.svg'
 
-export default function Message({ avatar, user, text, date, isMe, isReaded, attachments, isTyping, audio, _id }) {
+export default function Message({ user, text, date, isMe, isReaded, attachments, isTyping, audio, _id }) {
     return (
-        <div key={_id} className={classNames('message', {
+        <div className={classNames('message', {
             'message-isme': isMe,
             'message-notme': !isMe,
             'message-is-typing': !isTyping
-        })}>
+        })}
+        >
             <div className="message__content">
-                {isMe ? <img className="message__icon" src={isReaded ? readedSvg : noreadedSvg} alt="Checked icon" /> : ''}
+                {isMe ? <img className={'message__icon'+(isReaded?' readed':' noreaded')} src={isReaded ? readedSvg : noreadedSvg} alt="Checked icon" /> : ''}
                 <div className="message__avatar">
-                    {avatar && <img src={avatar} alt={`Avatar ${user.fullname}`} />}
+                    <Avatar avatar={user.avatar} id={_id} fullname={user.fullname}/>
                 </div>
                 {isTyping && (<div className="chat-bubble">
                     <div className="loading">
@@ -27,7 +28,7 @@ export default function Message({ avatar, user, text, date, isMe, isReaded, atta
                     </div>
                 </div>)}
                 <div>
-                    {text && (<p className="message__text">
+                    {text && !audio && (<p className="message__text">
                         {text}
                     </p>)}
                     {attachments && <div className="message__attached">
@@ -47,7 +48,6 @@ export default function Message({ avatar, user, text, date, isMe, isReaded, atta
 }
 Message.defaultProps = {
     user: {},
-    isReaded: true,
 }
 Message.propType = {
     avatar: propTypes.string,
