@@ -19,13 +19,13 @@ function Dialogs({ fetchDialogs, setCurrentDialogId, items = [] }) {
         setCurrentDialogId(id)
         setActive(id)
     }
-
+// eslint-disable-next-line
     useEffect(() => {
         if (!items.length) {
             fetchDialogs()
         }
         else setFiltered(items)
-    }, [items])
+    }, [items]) 
 
     return (
         <BaseDialogs

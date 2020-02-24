@@ -5,13 +5,14 @@ import { messagesActions } from 'redux/actions'
 import { Messages as BaseMessages } from 'components'
 
 function Dialog({ isLoading, currenDialogId, fetchMessages, items = [] }) {
+    // eslint-disable-next-line
     const messagesRef = useRef(null);
     useEffect(() => {
         if (currenDialogId) {
             fetchMessages(currenDialogId)
         }
     }, [currenDialogId])
-
+    // eslint-disable-next-line
     useEffect(() => {
         if (messagesRef.current) {
             messagesRef.current.scrollTo(0, 999999)

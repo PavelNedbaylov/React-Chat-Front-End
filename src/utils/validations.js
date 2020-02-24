@@ -13,6 +13,8 @@ export default function validation(values,event){
         errors.password = 'Required';
     } else if (event==='registration' && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})/.test(values.password)) {
         errors.password = 'Weak password';
+    } else if (event==='login' && values.password.length < 6) {
+        errors.password = 'Password must contain at least 6 characters';
     }
 
     // confirm password

@@ -10,21 +10,20 @@ export default function LoginForm(props) {
         errors,
         handleChange,
         handleSubmit,
-        isSubmitting,
+        isSubmitting
     } = props;
-
     return (
         <Block>
             <div className="auth__top">
-                <h2>Войти в аккаунт</h2>
-                <p>Пожалуйста, войдите в свой аккаунт</p>
+                <h2>Log in</h2>
+                <p>Please, sign in to your account</p>
             </div>
             <Form onSubmit={handleSubmit} className="login-form">
                 <Form.Item
                     hasFeedback
                     validateStatus={values.email ? errors.email ? 'error' : 'success' : ''}
                     help={errors.email}
-                    >
+                >
                     <Input
                         prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
                         size="large"
@@ -33,11 +32,14 @@ export default function LoginForm(props) {
                         onChange={handleChange}
                     />
                 </Form.Item>
-                <Form.Item help={errors.password}>
+                <Form.Item
+                    validateStatus={errors.user ? 'error' : 'success'}
+                    help={errors.password || errors.user}
+                >
                     <Input
                         size="large"
                         type="password"
-                        placeholder="Повторите параль"
+                        placeholder="Параль"
                         name="password"
                         onChange={handleChange}
                     />
