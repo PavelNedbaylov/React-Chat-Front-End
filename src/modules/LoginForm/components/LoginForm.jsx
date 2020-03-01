@@ -21,7 +21,7 @@ export default function LoginForm(props) {
             <Form onSubmit={handleSubmit} className="login-form">
                 <Form.Item
                     hasFeedback
-                    validateStatus={values.email ? errors.email ? 'error' : 'success' : ''}
+                    validateStatus={values.email ? errors.email || errors.user ? 'error' : 'success' : ''}
                     help={errors.email}
                 >
                     <Input
@@ -43,12 +43,13 @@ export default function LoginForm(props) {
                         name="password"
                         onChange={handleChange}
                     />
+                    {errors.server ? (<div className="server__error">{errors.server}</div>) : null}
                 </Form.Item>
                 <Form.Item>
                     <Button onClick={handleSubmit} disabled={isSubmitting} type="primary" htmlType="submit" size="large" className="login-form-button">
                         Log in
                     </Button>
-                    <Link to="/register">register now!</Link>
+                    <Link to="/signup">register now!</Link>
                 </Form.Item>
             </Form>
         </Block>

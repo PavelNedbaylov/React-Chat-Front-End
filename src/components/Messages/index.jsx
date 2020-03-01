@@ -4,7 +4,7 @@ import { Spin, Icon, Empty } from 'antd';
 import { Message } from 'components'
 import './messages.scss'
 
-export default function Messages({ blockref, isLoading, items }) {
+export default function Messages({ blockref, isLoading, items, user }) {
     return (
         <div className="chat__dialog-messages" ref={blockref}>
             {
@@ -15,7 +15,7 @@ export default function Messages({ blockref, isLoading, items }) {
                     <Empty className='chat__dialog-messages-empty' description={'Open dialog'} />
                 ) : (
                     items.map(item => (
-                        <Message key={item._id} {...item} />
+                        <Message key={item._id} {...item} isMe={user._id === item.user._id} />
                     ))
                 )
             }

@@ -16,7 +16,7 @@ export default function RegisterForm(props) {
     return (
         <div>
             <div className="auth__top">
-                <h2>Регистрация</h2>
+                <h2>Registration</h2>
                 <p>Для входа в чат, вам нужно зарегистрироваться</p>
             </div>
             <Block>
@@ -34,13 +34,17 @@ export default function RegisterForm(props) {
                             onChange={handleChange}
                         />
                     </Form.Item>
-                    <Form.Item validateStatus="success">
+                    <Form.Item
+                        hasFeedback
+                        validateStatus={values.fullname ? errors.fullname ? 'error' : 'success' : ''}
+                        help={errors.fullname}
+                    >
                         <Input
                             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             size="large"
                             type="text"
                             placeholder="Ваше имя"
-                            name="name"
+                            name="fullname"
                             onChange={handleChange}
                         />
                     </Form.Item>
@@ -71,12 +75,13 @@ export default function RegisterForm(props) {
                             name="conf_password"
                             onChange={handleChange}
                         />
+                        {errors.server ? (<div className="server__error">{errors.server}</div>) : null}
                     </Form.Item>
                     <Form.Item>
                         <Button onClick={handleSubmit} disabled={isSubmitting} type="primary" htmlType="submit" size="large" className="login-form-button">
                             Зарегистрироваться
                             </Button>
-                        <Link to="/login">Войти в аккаунт</Link>
+                        <Link to="/signin">Войти в аккаунт</Link>
                     </Form.Item>
                 </Form> : (
                         <div className="auth__success-block">

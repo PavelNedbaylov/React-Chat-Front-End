@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { dialogsActions } from 'redux/actions'
 import { Dialogs as BaseDialogs } from 'components'
+import { socket } from 'core'
 
 function Dialogs({ fetchDialogs, setCurrentDialogId, items = [] }) {
 
@@ -19,13 +20,18 @@ function Dialogs({ fetchDialogs, setCurrentDialogId, items = [] }) {
         setCurrentDialogId(id)
         setActive(id)
     }
-// eslint-disable-next-line
+    // eslint-disable-next-line
     useEffect(() => {
         if (!items.length) {
             fetchDialogs()
         }
         else setFiltered(items)
-    }, [items]) 
+
+        socket.removeListener('SERVER:DIALOG_CREATED')
+        socket.on('SERVER:DIALOG_CREATED', () => {
+            fetchMessages(currenDialogId)
+        })
+    }, [items])
 
     return (
         <BaseDialogs

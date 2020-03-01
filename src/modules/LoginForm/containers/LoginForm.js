@@ -26,7 +26,7 @@ export default withFormik({
           setErrors({ [error.response.data.type]: error.response.data.message })
         }
         else {
-          setErrors({ user: 'Something went wrong. Try again later' })
+          setErrors({ server: 'Something went wrong. Try again later' })
         }
       })
       .finally(() => setSubmitting(false))
